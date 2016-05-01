@@ -1,4 +1,4 @@
-package co.moonmonkeylabs.realmrecyclerview.example;
+package com.curiosityio.realmrecyclerview.example;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

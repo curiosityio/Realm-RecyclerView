@@ -1,4 +1,4 @@
-package co.moonmonkeylabs.realmrecyclerview.example;
+package com.curiosityio.realmrecyclerview.example;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import co.moonmonkeylabs.realmrecyclerview.RealmRecyclerView;
-import co.moonmonkeylabs.realmrecyclerview.example.models.CountryModel;
+import com.curiosityio.realmrecyclerview.RealmRecyclerView;
+import com.curiosityio.realmrecyclerview.example.models.CountryModel;
 import io.realm.Realm;
 import io.realm.RealmBasedRecyclerViewAdapter;
 import io.realm.RealmConfiguration;

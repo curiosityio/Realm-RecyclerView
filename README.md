@@ -19,13 +19,13 @@ A powerful ```Recyclerview``` wrapper for working with ```Realm``` as your datas
 
 ```
 	dependencies {
-	        compile 'com.github.thorbenprimke:realm-recyclerview:0.9.15'
+	        compile 'com.github.curiosityio:realm-recyclerview:0.9.16'
 	}
 ```
 
 ##Demo
 
-![Screenshot](https://raw.githubusercontent.com/thorbenprimke/realm-recyclerview/master/extra/screenshot-demo-app.gif)
+![Screenshot](https://raw.githubusercontent.com/curiosityio/realm-recyclerview/master/extra/screenshot-demo-app.gif)
 
 ## How To Get Started:
 
@@ -36,7 +36,7 @@ The ```RealmRecyclerView``` has a few attributes that can be set in XML in order
 The snippet below shows how to include the ```RealmRecyclerView``` in your  layout file.
 
 ```
-    <co.moonmonkeylabs.realmrecyclerview.RealmRecyclerView
+    <com.curiosityio.realmrecyclerview.RealmRecyclerView
         android:id="@+id/realm_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -79,6 +79,9 @@ The heart of the ```RealmRecyclerView```'s functionality comes from this custom 
 ##Feedback/More Features:
 I would love to hear your feedback. Do you find the ```RealmRecyclerView``` useful? What functionality are you missing? Open a ```Github``` issue and let me know. Thanks!
 
+## Thanks 
+
+Library forked from [thorbenprimke/realm-recyclerview](https://github.com/thorbenprimke/realm-recyclerview). Thanks! Great library I enjoyed but wanted some extra functionality. 
 
 ## License
 ```

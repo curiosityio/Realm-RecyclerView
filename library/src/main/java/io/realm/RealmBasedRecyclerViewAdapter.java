@@ -25,15 +25,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.curiosityio.realmrecyclerview.R;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import co.moonmonkeylabs.realmrecyclerview.LoadMoreListItemView;
-import co.moonmonkeylabs.realmrecyclerview.R;
-import co.moonmonkeylabs.realmrecyclerview.RealmRecyclerView;
+import com.curiosityio.realmrecyclerview.LoadMoreListItemView;
+import com.curiosityio.realmrecyclerview.RealmRecyclerView;
 import difflib.Chunk;
 import difflib.Delta;
 import difflib.DiffUtils;

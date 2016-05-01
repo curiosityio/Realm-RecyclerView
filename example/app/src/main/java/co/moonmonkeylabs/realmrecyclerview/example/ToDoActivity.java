@@ -1,4 +1,4 @@
-package co.moonmonkeylabs.realmrecyclerview.example;
+package com.curiosityio.realmrecyclerview.example;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,8 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import co.moonmonkeylabs.realmrecyclerview.RealmRecyclerView;
-import co.moonmonkeylabs.realmrecyclerview.example.models.TodoItem;
+import com.curiosityio.realmrecyclerview.RealmRecyclerView;
+import com.curiosityio.realmrecyclerview.example.models.TodoItem;
 import io.realm.Realm;
 import io.realm.RealmBasedRecyclerViewAdapter;
 import io.realm.RealmConfiguration;

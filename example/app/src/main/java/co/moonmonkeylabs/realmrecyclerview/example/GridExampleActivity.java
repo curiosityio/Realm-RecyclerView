@@ -1,4 +1,4 @@
-package co.moonmonkeylabs.realmrecyclerview.example;
+package com.curiosityio.realmrecyclerview.example;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import co.moonmonkeylabs.realmnytimesdata.NYTimesDataLoader;
-import co.moonmonkeylabs.realmnytimesdata.NYTimesModule;
-import co.moonmonkeylabs.realmnytimesdata.model.NYTimesMultimedium;
-import co.moonmonkeylabs.realmnytimesdata.model.NYTimesStory;
-import co.moonmonkeylabs.realmrecyclerview.RealmRecyclerView;
+import com.curiosityio.realmnytimesdata.NYTimesDataLoader;
+import com.curiosityio.realmnytimesdata.NYTimesModule;
+import com.curiosityio.realmnytimesdata.model.NYTimesMultimedium;
+import com.curiosityio.realmnytimesdata.model.NYTimesStory;
+import com.curiosityio.realmrecyclerview.RealmRecyclerView;
 import io.realm.Realm;
 import io.realm.RealmBasedRecyclerViewAdapter;
 import io.realm.RealmConfiguration;

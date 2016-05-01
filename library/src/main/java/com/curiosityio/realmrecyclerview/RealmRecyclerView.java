@@ -1,4 +1,4 @@
-package co.moonmonkeylabs.realmrecyclerview;
+package com.curiosityio.realmrecyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -31,6 +31,10 @@ public class RealmRecyclerView extends FrameLayout {
         void onLoadMore(Object lastItem);
     }
 
+    public interface OnRealmDataChanged {
+        void onRealmDataChanged();
+    }
+
     private enum Type {
         LinearLayout,
         Grid,
@@ -40,6 +44,7 @@ public class RealmRecyclerView extends FrameLayout {
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private ViewStub emptyContentContainer;
+    private View providedEmptyView;
     private RealmBasedRecyclerViewAdapter adapter;
     private RealmSimpleItemTouchHelperCallback realmSimpleItemTouchHelperCallback;
     private boolean hasLoadMoreFired;
@@ -62,6 +67,7 @@ public class RealmRecyclerView extends FrameLayout {
     // Listener
     private OnRefreshListener onRefreshListener;
     private OnLoadMoreListener onLoadMoreListener;
+    private OnRealmDataChanged onRealmDataChanged;
 
     public RealmRecyclerView(Context context) {
         super(context);
@@ -171,6 +177,14 @@ public class RealmRecyclerView extends FrameLayout {
         }
     }
 
+    public void setEmptyView(View emptyView) {
+        if (emptyViewId != 0) {
+            throw new RuntimeException("Cannot set empty view layout resource and empty view. Remove one and try again.");
+        }
+
+        this.providedEmptyView = emptyView;
+    }
+
     /**
      * Sets the orientation of the layout. {@link android.support.v7.widget.LinearLayoutManager}
      * will do its best to keep scroll position.
@@ -194,6 +208,10 @@ public class RealmRecyclerView extends FrameLayout {
 
     public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
         this.onLoadMoreListener = onLoadMoreListener;
+    }
+
+    public void setOnRealmDataChanged(OnRealmDataChanged onRealmDataChanged) {
+        this.onRealmDataChanged = onRealmDataChanged;
     }
 
     public void enableShowLoadMore() {
@@ -325,6 +343,10 @@ public class RealmRecyclerView extends FrameLayout {
 
                         private void update() {
                             updateEmptyContentContainerVisibility(adapter);
+
+                            if (onRealmDataChanged != null) {
+                                onRealmDataChanged.onRealmDataChanged();
+                            }
                         }
                     }
             );
@@ -333,10 +355,13 @@ public class RealmRecyclerView extends FrameLayout {
     }
 
     private void updateEmptyContentContainerVisibility(RecyclerView.Adapter adapter) {
-        if (emptyViewId == 0) {
+        if (emptyViewId == 0 && providedEmptyView == null) {
             return;
         }
-        emptyContentContainer.setVisibility(
+
+        View emptyView = emptyContentContainer != null ? emptyContentContainer : providedEmptyView;
+
+        emptyView.setVisibility(
                 adapter.getItemCount() == 0 ? View.VISIBLE : View.GONE);
     }
 

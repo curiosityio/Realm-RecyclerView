@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import co.moonmonkeylabs.realmrecyclerview.LoadMoreListItemView;
+import com.curiosityio.realmrecyclerview.LoadMoreListItemView;
 
 /**
  * ViewHolder used with {@link RealmBasedRecyclerViewAdapter}
