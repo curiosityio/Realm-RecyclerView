@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 import com.tonicartos.superslim.LayoutManager;
-
 import io.realm.RealmBasedRecyclerViewAdapter;
 
 /**
@@ -43,7 +42,6 @@ public class RealmRecyclerView extends FrameLayout {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
-    private View listLoadingView;
     private ViewStub emptyContentContainer;
     private View providedEmptyView;
     private RealmBasedRecyclerViewAdapter adapter;
@@ -101,7 +99,6 @@ public class RealmRecyclerView extends FrameLayout {
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.rrv_swipe_refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.rrv_recycler_view);
-        listLoadingView = findViewById(R.id.rrv_list_loading_view);
         emptyContentContainer = (ViewStub) findViewById(R.id.rrv_empty_content_container);
 
         swipeRefreshLayout.setEnabled(isRefreshable);
@@ -345,8 +342,6 @@ public class RealmRecyclerView extends FrameLayout {
                         }
 
                         private void update() {
-                            listLoadingView.setVisibility(View.GONE);
-
                             updateEmptyContentContainerVisibility(adapter);
 
                             if (onRealmDataChanged != null) {
