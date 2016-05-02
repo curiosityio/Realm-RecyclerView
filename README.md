@@ -60,11 +60,15 @@ All these will yield vertical linear or grid layouts.
 
 ```rrvEmptyLayoutId```: A custom empty state view can be provided via this attribute. Whenever the list has no item, the empty state is shown. 
 
+(alternatively if you would rather provide a View object for the empty view instead of the recyclerview inflating one for you, you may set an empty view via: `mRealmRecyclerView.setEmptyView(view);`)
+
 ```rrvGridLayoutSpanCount```: This attribute has to be set with an integer greater than zero when the ```rrvLayoutType``` is set to ```Grid``` unless ```rrvGridLayoutItemWidth``` is set.
 
  ```rrvGridLayoutItemWidth```: This attribute has to be set with a size value that represents the width of a grid column when the ```rrvLayoutType``` is set to ```Grid``` unless ```rrvGridLayoutSpanCount``` is set.
 
 ```rrvSwipeToDelete```: This attribute is only supported with ```rrvLayoutType``` of ```LinearLayout```. If set to true, swiping a row to delete is enabled. The row is deleted from the ```Realm``` directly.
+
+* ```OnRealmDataChanged```: listener triggered when data is updated on the adapter via realm data update. Set your listener via: `mRealmRecyclerView.setOnRealmDataChanged(yourListener)`
 
 ##RealmBasedRecyclerViewAdapter: 
 
@@ -75,9 +79,6 @@ The heart of the ```RealmRecyclerView```'s functionality comes from this custom 
 * ```animateResults```: If animateResults is set together with automaticUpdate, the automatic updates are animated. This is limited to a single deletion or insertion. If it's more than one item, it will simply refresh the list. The animation leverages the resuls primary key column in order as a unique identifier for each row. Therefore your ```Realm```'s schema needs to include a primary key column of type ```Integer``` or ```String```.
 
 * ```addSectionHeaders```: When the ```rrvLayoutType``` is ```LinearLayoutWithHeaders```, addSectionHeaders needs be set in order for the adapter to generate the headers. The ```headerColumnName``` needs to be set as well in order to look up the header column programmatically your ```Realm```'s schema. *Note: There is currently no support for customizing the header and it is always inline|sticky.*
-
-##Feedback/More Features:
-I would love to hear your feedback. Do you find the ```RealmRecyclerView``` useful? What functionality are you missing? Open a ```Github``` issue and let me know. Thanks!
 
 ## Thanks 
 
